@@ -14,7 +14,7 @@
 #########################
 
 updateurl="http://svc.joker.com/nic/update?username=johndoe&password=1234&hostname=foobar.com"
-logfile="/var/log/crontab.log"
+logfile="/var/log/dyndns-refresh.log"
 
 tmpfile="/tmp/dyndns"
 logfilelength=100
