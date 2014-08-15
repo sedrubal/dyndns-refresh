@@ -17,9 +17,12 @@ usage
  <pre><code>wget https://github.com/sedrubal/dyndns-refresh/raw/master/dyndns.sh
  sudo chmod +x dyndns.sh </pre></code>
  - adapt the settings in the script
- - create a logfile (write and readeable for crontab user):
+ - create a logfile (write- and readeable for crontab user):
  <pre><code>sudo touch /var/log/dyndns-refresh.log
  sudo chmod 666 /var/log/dyndns-refresh.log</pre></code>
+ - check, if the script works
+ <pre><code>./dyndns.sh
+ tail /var/log/dyndns-refresh.log</pre></code>
  - create a crontab (crontab -e) like this:
  <pre><code>0 * * * * /home/$user/dyndns.sh >/dev/null 2>&1
  │ └─┴─┴─┴─ every hour, day, month, weekday
@@ -63,3 +66,4 @@ license
 <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/sedrubal/" property="cc:attributionName" rel="cc:attributionURL">sedrubal</a>
  is licensed under a 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
