@@ -14,7 +14,7 @@ usage
 -----
 
  - save the ![dyndns-script](dyndns.sh) (for example in your home directory) and make it executeable
- <pre><code> wget https://github.com/sedrubal/dyndns-refresh/raw/master/dyndns.sh
+ <pre><code>wget https://github.com/sedrubal/dyndns-refresh/raw/master/dyndns.sh
  sudo chmod +x dyndns.sh </pre></code>
  - adapt the settings in the script
  - create a logfile (write and readeable for crontab user):
