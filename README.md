@@ -13,20 +13,36 @@ features
 usage
 -----
 
- - save the ![dyndns-script](dyndns.sh) (for example in your home directory) and make it executeable
- <pre><code>wget https://github.com/sedrubal/dyndns-refresh/raw/master/dyndns.sh
- sudo chmod +x dyndns.sh </pre></code>
+ - save the ![`dyndns-script`](dyndns.sh) (for example in your home directory) and make it executeable
+
+```bash
+wget https://github.com/sedrubal/dyndns-refresh/raw/master/dyndns.sh
+sudo chmod +x dyndns.sh
+```
+
  - adapt the settings in the script
  - create a logfile (write- and readeable for crontab user):
- <pre><code>sudo touch /var/log/dyndns-refresh.log
- sudo chmod 666 /var/log/dyndns-refresh.log</pre></code>
+
+```bash
+sudo touch /var/log/dyndns-refresh.log
+sudo chmod 666 /var/log/dyndns-refresh.log
+```
  - check, if the script works
- <pre><code>./dyndns.sh
- tail /var/log/dyndns-refresh.log</pre></code>
+
+```bash
+./dyndns.sh
+tail /var/log/dyndns-refresh.log
+```
+
  - create a crontab (crontab -e) like this:
- <pre><code>0 * * * * /home/$user/dyndns.sh >/dev/null 2>&1
+
+```bash
+ 0 * * * * /home/$user/dyndns.sh >/dev/null 2>&1
  │ └─┴─┴─┴─ every hour, day, month, weekday
- └───────── when minute == 0</pre></code>
+ └───────── when minute == 0
+```
+
+ - copy the [`dyndns-logrotate`](dyndns-logrotate) to `/etc/logrotate.d/dyndns-refresh`
 
 functionality
 -------------
@@ -41,6 +57,7 @@ dependencies
  - linux
  - wget
  - cron
+ - logrotate
 
 supported providers
 -------------------
@@ -49,12 +66,13 @@ supported providers
  - no-ip.com ?
  - ...
 
-not implemented yet
--------------------
+not implemented yet / todo
+--------------------------
 
  - automatic installation and support for crontab
  - automatic generation of update url
- - automatic logfile shortener
+ - use curl
+ - use logger
 
 license
 -------

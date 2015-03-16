@@ -23,7 +23,7 @@ logfilelength=100
 #			#
 #########################
 
-# update dyndns
+# update dyndns # TODO: curl
 
 wget -O $tmpfile $updateurl
 
@@ -34,15 +34,3 @@ echo "["$(date)"]:   "$(cat $tmpfile) >> $logfile
 # clean up
 
 rm $tmpfile
-
-#  shorten logfile
-
-line=$(awk 'END {print NR}' $logfile)
-re='^[0-9]+$'
-if ! [[ $line =~ $re ]] ; then
-	echo "[error] line is not a number" >&2; exit 1
-elif [ $line -gt $logfilelength ] ; then
-#	echo "[i] logfile is too larg and will be shorten. Number of lines: " $line
-#	awk '{i += (length() + 1); if (i <= 10) print $ALL}' $logfile > $logfile # TODO
-	echo "[info] logfile is large now. Please shorten it"
-fi
