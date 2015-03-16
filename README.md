@@ -13,11 +13,11 @@ features
 usage
 -----
 
- - save the ![`dyndns-script`](dyndns.sh) (for example in your home directory) and make it executeable
+ - clone the repository (for example in your home directory) and make [`dyndns.sh`](dyndns.sh) executeable
 
 ```bash
-wget https://github.com/sedrubal/dyndns-refresh/raw/master/dyndns.sh
-sudo chmod +x dyndns.sh
+git clone https://github.com/sedrubal/dyndns-refresh.git && cd dyndns-refresh
+chmod +x dyndns.sh
 ```
 
  - adapt the settings in the script
