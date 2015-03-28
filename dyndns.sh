@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 #########################################################################
 #	This script updates the dyndns entry and saves a small log	#
 #	----------------------------------------------------------	#
@@ -10,27 +12,21 @@
 #########################################################################
 
 #########################
-#	settings:	#
+#	config:		#
 #########################
 
-updateurl="http://svc.joker.com/nic/update?username=johndoe&password=1234&hostname=foobar.com"
-logfile="/var/log/dyndns-refresh.log"
+configfile='config.cfg'
 
-tmpfile="/tmp/dyndns"
-logfilelength=100
+source "$configfile"
 
 #########################
-#			#
+#	update state	#
 #########################
 
-# update dyndns # TODO: curl
+status="$(curl -s -L ${url})"
 
-wget -O $tmpfile $updateurl
+# log results and exit
 
-# add date and append to logfile
+exec "${loggerpath}" -f "${logfile}" "dyndns refresh: $status"
 
-echo "["$(date)"]:   "$(cat $tmpfile) >> $logfile
-
-# clean up
-
-rm $tmpfile
+exit 0

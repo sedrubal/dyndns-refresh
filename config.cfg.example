@@ -1,0 +1,7 @@
+user="me"
+password="1234"
+hostname="foobar.com"
+url="https://svc.joker.com/nic/update?username=${user}&password=${password}&hostname=${hostname}"
+
+loggerpath='/usr/bin/logger'
+logfile='/var/log/syslog'
