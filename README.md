@@ -1,7 +1,7 @@
 dyndns-refresh
 ==============
 
-a small bash-script to refresh your dyn A entry. Works with many providers.
+a small bash-script to refresh a `dyn A` entry. Should work for many providers.
 
 features
 --------
@@ -42,18 +42,18 @@ sudo chmod 400 config.cfg
 tail $logfile
 ```
 
- - create a crontab (`crontab -e $USER`) like this:
+ - create a crontab (`crontab -e -u $USER`) like this:
 
 ```bash
- 0 * * * * /home/$USER/dyndns.sh >/dev/null 2>&1
- │ └─┴─┴─┴─ every hour, day, month, weekday
- └───────── when minute == 0
+ 0/15 * * * * /home/$USER/dyndns.sh 2>&1
+   │  └─┴─┴─┴─ every hour, day, month, weekday
+   └────────── when minute == 15
 ```
 
 functionality
 -------------
 
- - a crontab will trigger this script (default: every hour; you can change the interval)
+ - a crontab will trigger this script (default: every 15 minutes; you can change the interval)
  - this scripts uses `curl` to request the update-website of the provider. He will notice your ip.
  - the output will be saved as log
 
