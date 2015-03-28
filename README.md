@@ -38,7 +38,7 @@ sudo chmod 400 config.cfg
  - check, if the script works
 
 ```bash
-./dyndns.sh
+./dyndns.sh -v
 tail $logfile
 ```
 
@@ -46,8 +46,8 @@ tail $logfile
 
 ```bash
  0/15 * * * * /home/$USER/dyndns.sh 2>&1
-   │  └─┴─┴─┴─ every hour, day, month, weekday
-   └────────── when minute == 15
+#  │  └─┴─┴─┴─ every hour, day, month, weekday
+#  └────────── when minute == 15
 ```
 
 functionality
@@ -77,6 +77,7 @@ not implemented yet / todo
 --------------------------
 
  - (automatic installation and support for crontab)
+ - check if parameter $1 == "-v" (bash is so complicated)
 
 license
 -------

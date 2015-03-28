@@ -27,6 +27,10 @@ status="$(curl -s -L ${url})"
 
 # log results and exit
 
-exec "${loggerpath}" -f "${logfile}" "dyndns refresh: $status"
+if [[ ! -z $1 && "$1" -eq "-v" ]] ; then
+	echo "${status}"
+fi
+
+exec "${loggerpath}" -f "${logfile}" "dyndns-refresh: $status"
 
 exit 0
