@@ -17,7 +17,7 @@ set -e
 
 configfile='config.cfg'
 
-source "$configfile"
+source "$(dirname $0)/$configfile"
 
 #########################
 #	update state	#
